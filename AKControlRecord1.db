@@ -1,0 +1,776 @@
+####PLC2IOC####
+#Gap Position&Velocity
+record(ai,"AK:CurrentGapPosition")
+{
+	field(DESC,"GapPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.UserGapPositionDisplay")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:CurrentGapVelocity")
+{
+	field(DESC,"GapVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.UserGapVelocityDisplay")
+	field(SCAN,"I/O Intr")
+}
+#4-axis Position&Velocity
+record(ai,"AK:Pos_EntranceTopLin")
+{
+	field(DESC,"EntranceTopPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Pos_LeftTopLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Velo_EntranceTopLin")
+{
+	field(DESC,"EntranceTopVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Velo_LeftTopLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Pos_ExitTopLin")
+{
+	field(DESC,"ExitTopPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Pos_RightTopLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Velo_ExitTopLin")
+{
+	field(DESC,"ExitTopVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Velo_RightTopLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Pos_EntranceBottomLin")
+{
+	field(DESC,"EntranceBottomPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Pos_LeftBottomLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Velo_EntranceBottomLin")
+{
+	field(DESC,"EntranceBottomVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Velo_LeftBottomLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Pos_ExitBottomLin")
+{
+	field(DESC,"ExitBottomPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Pos_RightBottomLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Velo_ExitBottomLin")
+{
+	field(DESC,"ExitBottomVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Velo_RightBottomLin")
+	field(SCAN,"I/O Intr")
+}
+#2-axis Phase Position&Velocity
+record(ai,"AK:Pos_PhaseUpperLin")
+{
+	field(DESC,"PhaseUpperPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Pos_PhaseUpperLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Velo_PhaseUpperLin")
+{
+	field(DESC,"PhaseUpperVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Velo_PhaseUpperLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Pos_PhaseLowerLin")
+{
+	field(DESC,"PhaseLowerPosition")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Pos_PhaseLowerLin")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Velo_PhaseLowerLin")
+{
+	field(DESC,"PhaseLowerVelocity")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Velo_PhaseLowerLin")
+	field(SCAN,"I/O Intr")
+}
+#8 Gap and 4 phase LimitSwicth 
+record(bi,"AK:LS_EntranceTop_Far")
+{
+	field(DESC,"LimitSwitch_EntranceTopFarGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_LeftTop_Top")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_EntranceTop_Near")
+{
+	field(DESC,"LimitSwitch_EntranceTopNearGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_LeftTop_Bottom")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_ExitTop_Far")
+{
+	field(DESC,"LimitSwitch_ExitTopFarGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_RightTop_Top")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_ExitTop_Near")
+{
+	field(DESC,"LimitSwitch_ExitTopNearGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_RightTop_Bottom")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_EntranceBottom_Far")
+{
+	field(DESC,"LimitSwitch_EntranceBottomFarGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_LeftBottom_Top")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_EntranceBottom_Near")
+{
+	field(DESC,"LimitSwitch_EntranceBottomNearGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_LeftBottom_Bottom")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_ExitBottom_Far")
+{
+	field(DESC,"LimitSwitch_ExitBottomFarGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_RightBottom_Top")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_ExitBottom_Near")
+{
+	field(DESC,"LimitSwitch_ExitBottomNearGap")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_RightBottom_Bottom")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_PhaseUpper_Entrance")
+{
+	field(DESC,"LimitSwitch_PhaseUpper_Entrance")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_PhaseUpper_Entrance")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_PhaseUpper_Exit")
+{
+	field(DESC,"LimitSwitch_PhaseUpper_Exit")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_PhaseUpper_Exit")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_PhaseLower_Entrance")
+{
+	field(DESC,"LimitSwitch_PhaseLower_Entrance")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_PhaseLower_Entrance")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:LS_PhaseLower_Exit")
+{
+	field(DESC,"LimitSwitch_PhaseLower_Exit")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.LS_PhaseLower_Exit")
+	field(SCAN,"I/O Intr")
+}
+#####Status#####
+record(bi,"AK:st_Power")
+{
+	field(DESC,"st_Power")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.st_Power")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:InsertionDeviceName")
+{
+	field(DESC,"InsertionDeviceName")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.InsertionDeviceName")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:IDControlReady")
+{
+	field(DESC,"IDControlReady")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.IDControlReady")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Hardware_EmergencyStop")
+{
+	field(DESC,"Hardware_EmergencyStop")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Hardware_EmergencyStop")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Error")
+{
+	field(DESC,"Error")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.Error")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:ErrorID")
+{
+	field(DESC,"ErrorID")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.ErrorID")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:ErrorDescription")
+{
+	field(DESC,"ErrorDescription")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.ErrorDescription")
+	field(SCAN,"I/O Intr")
+}
+
+record(ai,"AK:UserTaperPositionDisplay")
+{
+	field(DESC,"UserTaperPositionDisplay")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.UserTaperPositionDisplay")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:UserTaperVelocityDisplay")
+{
+	field(DESC,"UserTaperVelocityDisplay")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.UserTaperVelocityDisplay")
+	field(SCAN,"I/O Intr")
+}
+##kill switch
+record(bi,"AK:KS_LeftTop_Far_Contact2")
+{
+	field(DESC,"KS_LeftTop_Far_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftTop_Far_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftTop_Far_Contact1")
+{
+	field(DESC,"KS_LeftTop_Far_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftTop_Far_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftTop_Near_Contact1")
+{
+	field(DESC,"KS_LeftTop_Near_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftTop_Near_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftTop_Near_Contact2")
+{
+	field(DESC,"KS_LeftTop_Near_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftTop_Near_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftBottom_Near_Contact2")
+{
+	field(DESC,"KS_LeftBottom_Near_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftBottom_Near_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftBottom_Near_Contact1")
+{
+	field(DESC,"KS_LeftBottom_Near_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftBottom_Near_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftBottom_Far_Contact1")
+{
+	field(DESC,"KS_LeftBottom_Far_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftBottom_Far_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_LeftBottom_Far_Contact2")
+{
+	field(DESC,"KS_LeftBottom_Far_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_LeftBottom_Far_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightTop_Far_Contact2")
+{
+	field(DESC,"KS_RightTop_Far_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightTop_Far_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightTop_Far_Contact1")
+{
+	field(DESC,"KS_RightTop_Far_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightTop_Far_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightTop_Near_Contact1")
+{
+	field(DESC,"KS_RightTop_Near_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightTop_Near_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightTop_Near_Contact2")
+{
+	field(DESC,"KS_RightTop_Near_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightTop_Near_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightBottom_Near_Contact2")
+{
+	field(DESC,"KS_RightBottom_Near_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightBottom_Near_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightBottom_Near_Contact1")
+{
+	field(DESC,"KS_RightBottom_Near_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightBottom_Near_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightBottom_Far_Contact2")
+{
+	field(DESC,"KS_RightBottom_Far_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightBottom_Far_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_RightBottom_Far_Contact1")
+{
+	field(DESC,"KS_RightBottom_Far_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_RightBottom_Far_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseUpper_Exit_Contact1")
+{
+	field(DESC,"KS_PhaseUpper_Exit_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseUpper_Exit_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseUpper_Exit_Contact2")
+{
+	field(DESC,"KS_PhaseUpper_Exit_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseUpper_Exit_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseLower_Exit_Contact1")
+{
+	field(DESC,"KS_PhaseLower_Exit_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseLower_Exit_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseLower_Exit_Contact2")
+{
+	field(DESC,"KS_PhaseLower_Exit_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseLower_Exit_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseUpper_Entrance_Contact1")
+{
+	field(DESC,"KS_PhaseUpper_Entrance_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseUpper_Entrance_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseUpper_Entrance_Contact2")
+{
+	field(DESC,"KS_PhaseUpper_Entrance_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseUpper_Entrance_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseLower_Entrance_Contact1")
+{
+	field(DESC,"KS_PhaseLower_Entrance_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseLower_Entrance_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_PhaseLower_Entrance_Contact2")
+{
+	field(DESC,"KS_PhaseLower_Entrance_Contact2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_PhaseLower_Entrance_Contact2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_CabinetEmergency_contact1")
+{
+	field(DESC,"KS_CabinetEmergency_contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_CabinetEmergency_contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_handEmergency1_Contact1")
+{
+	field(DESC,"KS_handEmergency1_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_handEmergency1_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:KS_handEmergency2_Contact1")
+{
+	field(DESC,"KS_handEmergency2_Contact1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.Global_Variables.KS_handEmergency2_Contact1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:FB_ERROR")
+{
+	field(DESC,"FB_ERROR")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.FB_ERROR")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:COM_ERROR")
+{
+	field(DESC,"COM_ERROR")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.COM_ERROR")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:SafePLCRunOK")
+{
+	field(DESC,"SafePLCRunOK")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.SafePLCRunOK")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:DriveDiagNumber_LeftTop")
+{
+	field(DESC,"DriveDiagNumber_LeftTop")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagNumber_LeftTop")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:DriveDiagNumber_RightTop")
+{
+	field(DESC,"DriveDiagNumber_RightTop")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagNumber_RightTop")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:DriveDiagNumber_LeftBottom")
+{
+	field(DESC,"DriveDiagNumber_LeftBottom")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagNumber_LeftBottom")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:DriveDiagNumber_RightBottom")
+{
+	field(DESC,"DriveDiagNumber_RightBottom")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagNumber_RightBottom")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:DriveDiagNumber_PhaseUpper")
+{
+	field(DESC,"DriveDiagNumber_PhaseUpper")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagNumber_PhaseUpper")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:DriveDiagNumber_PhaseLower")
+{
+	field(DESC,"DriveDiagNumber_PhaseLower")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagNumber_PhaseLower")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:DriveDiagMessage_LeftTop")
+{
+	field(DESC,"DriveDiagMessage_LeftTop")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagMessage_LeftTop")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:DriveDiagMessage_RightTop")
+{
+	field(DESC,"DriveDiagMessage_RightTop")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagMessage_RightTop")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:DriveDiagMessage_LeftBottom")
+{
+	field(DESC,"DriveDiagMessage_LeftBottom")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagMessage_LeftBottom")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:DriveDiagMessage_RightBottom")
+{
+	field(DESC,"DriveDiagMessage_RightBottom")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagMessage_RightBottom")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:DriveDiagMessage_PhaseUpper")
+{
+	field(DESC,"DriveDiagMessage_PhaseUpper")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagMessage_PhaseUpper")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:DriveDiagMessage_PhaseLower")
+{
+	field(DESC,"DriveDiagMessage_PhaseLower")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.MAIN.DriveDiagMessage_PhaseLower")
+	field(SCAN,"I/O Intr")
+}
+
+
+###################################################
+#############################IOC2PLC###########################################################################
+#Power
+record(bo,"AK:Power")
+{
+	field(DESC,"Power on or off")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_Power")
+	field(SCAN,"I/O Intr")
+}
+#Gap Move&Stop
+record(bo,"AK:GapMove")
+{
+	field(DESC,"gap move")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_UserGapMove")
+	field(SCAN,"I/O Intr")
+}
+record(bo,"AK:GapStop")
+{
+	field(DESC,"gap stop")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_UserGapStop")
+	field(SCAN,"I/O Intr")
+}
+#Phase Move&Stop
+record(bo,"AK:btn_UserPhaseUpperMove")
+{
+	field(DESC,"btn_UserPhaseUpperMove")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_UserPhaseUpperMove")
+	field(SCAN,"I/O Intr")
+}
+record(bo,"AK:btn_UserPhaseUpperStop")
+{
+	field(DESC,"btn_UserPhaseUpperStop")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_UserPhaseUpperStop")
+	field(SCAN,"I/O Intr")
+}
+record(bo,"AK:btn_UserPhaseLowerMove")
+{
+	field(DESC,"btn_UserPhaseLowerMove")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_UserPhaseLowerMove")
+	field(SCAN,"I/O Intr")
+}
+record(bo,"AK:btn_UserPhaseLowerStop")
+{
+	field(DESC,"btn_UserPhaseLowerStop")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.btn_UserPhaseLowerStop")
+	field(SCAN,"I/O Intr")
+}
+# Gap target position&velocity
+record(ao,"AK:TargetGapPosition")
+{
+	field(DESC,"GapTargetPosition")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.UserGapPositionNew")
+	field(SCAN,"I/O Intr")
+}
+record(ao,"AK:TargetGapVelocity")
+{
+	field(DESC,"GapTargetVelocity")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.UserGapVelocityNew")
+	field(SCAN,"I/O Intr")
+}
+#Phase target position&velocity
+record(ao,"AK:TargetPhaseUpperPosition")
+{
+	field(DESC,"UserPhaseUpperPositionNew")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.UserPhaseUpperPositionNew")
+	field(SCAN,"I/O Intr")
+}
+record(ao,"AK:TargetPhaseUpperVelocity")
+{
+	field(DESC,"UserPhaseUpperVelocityNew")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.UserPhaseUpperVelocityNew")
+	field(SCAN,"I/O Intr")
+}
+record(ao,"AK:TargetPhaseLowerPosition")
+{
+	field(DESC,"UserPhaseLowerPositionNew")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.UserPhaseLowerPositionNew")
+	field(SCAN,"I/O Intr")
+}
+record(ao,"AK:TargetPhaseLowerVelocity")
+{
+	field(DESC,"UserPhaseLowerVelocityNew")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.UserPhaseLowerVelocityNew")
+	field(SCAN,"I/O Intr")
+}
+#restart TwinCAT
+record(bo,"AK:RestartTwinCAT")
+{
+	field(DESC,"RestartTwinCAT")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.Global_Variables.m_restartTC")
+	field(SCAN,"I/O Intr")
+}
+#emergency
+record(bo,"AK:Plc_EmergencyStop")
+{
+	field(DESC,"Plc_EmergencyStop")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.Global_Variables.Plc_EmergencyStop")
+	field(SCAN,"I/O Intr")
+}
+#Gloabal_ChainProtection
+record(bo,"AK:Global_ChainProtection_BeamLineReady")
+{
+	field(DESC,"Global_ChainProtection_BeamLineReady")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.Global_ChainProtection_BeamLineReady")
+	field(SCAN,"I/O Intr")
+}
+record(bo,"AK:Global_ChainProtection_StorageRingReady")
+{
+	field(DESC,"Global_ChainProtection_StorageRingReady")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.Global_ChainProtection_StorageRingReady")
+	field(SCAN,"I/O Intr")
+}
+record(bo,"AK:Global_ChainProtection_ManualOperation")
+{
+	field(DESC,"Global_ChainProtection_ManualOperation")
+	field(DTYP,"opc")
+	field(OUT,"1 Plc1.UserMode.Global_ChainProtection_ManualOperation")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_In1")
+{
+	field(DESC,"Global_ChainProtection_In1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_In1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_In2")
+{
+	field(DESC,"Global_ChainProtection_In2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_In2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_In3")
+{
+	field(DESC,"Global_ChainProtection_In3")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_In3")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_In4")
+{
+	field(DESC,"Global_ChainProtection_In4")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_In4")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Triggered")
+{
+	field(DESC,"Global_ChainProtection_Triggered")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Triggered")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Out1")
+{
+	field(DESC,"Global_ChainProtection_Out1")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Out1")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Out2")
+{
+	field(DESC,"Global_ChainProtection_Out2")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Out2")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Out3")
+{
+	field(DESC,"Global_ChainProtection_Out3")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Out3")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Out4")
+{
+	field(DESC,"Global_ChainProtection_Out4")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Out4")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Done")
+{
+	field(DESC,"Global_ChainProtection_Done")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Done")
+	field(SCAN,"I/O Intr")
+}
+record(bi,"AK:Global_ChainProtection_Error")
+{
+	field(DESC,"Global_ChainProtection_Error")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_Error")
+	field(SCAN,"I/O Intr")
+}
+record(ai,"AK:Global_ChainProtection_ErrorID")
+{
+	field(DESC,"Global_ChainProtection_ErrorID")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_ErrorID")
+	field(SCAN,"I/O Intr")
+}
+record(stringin,"AK:Global_ChainProtection_ErrorDescription")
+{
+	field(DESC,"Global_ChainProtection_ErrorDescription")
+	field(DTYP,"opc")
+	field(INP,"1 Plc1.UserMode.Global_ChainProtection_ErrorDescription")
+	field(SCAN,"I/O Intr")
+}
